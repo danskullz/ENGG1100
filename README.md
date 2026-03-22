@@ -23,9 +23,10 @@ $ PIGPIO_ADDR=192.168.0.1 python3 remote.py
 
 ### Hardware
 Pin definitions:
-| GND  | GND | Pin 34 |
-|------|-----|--------|
-| In 1 | 17  | 11     |
-| In 2 | 22  | 15     |
-| In 3 | 23  | 16     |
-| In 4 | 24  | 18     |
+| ID   | GPIO | RPI PIN |
+|------|------|---------|
+| GND  | GND  | 34      |
+| In 1 | 17   | 11      |
+| In 2 | 22   | 15      |
+| In 3 | 23   | 16      |
+| In 4 | 24   | 18      |
