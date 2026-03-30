@@ -63,3 +63,44 @@ print(f"Listening on ws://{ip}:{PORT}")
 # main loop
 while True:
     stop()
+    print("please connect, i am waiting!")
+    conn, addr = server.accept()
+    conn.settimeout(2)
+    print(f"someone connected from: {addr}")
+    ws = websocket_handshake(conn)
+ 
+    if ws is None:
+        print("the handshake failed. this probably means that this wasnt a websocket request")
+        conn.close()
+        continue
+ 
+    print("we are ready to rumble")
+    ws.write("ready")
+ 
+    current = "stop"
+ 
+    try:
+        while True:
+            data = ws.read()
+            if data is None:
+                break
+
+            cmd = data.decode().strip().lower()
+ 
+            if cmd == current:
+                continue
+            current = cmd
+ 
+            if cmd == "forward":
+                forward()
+            elif cmd == "backward":
+                backward()
+            else:
+                stop()
+ 
+    except (WebSocketError, OSError) as e:
+        print("error in connection:", e)
+    finally:
+        stop()
+        ws.close()
+        print("disconnected")
