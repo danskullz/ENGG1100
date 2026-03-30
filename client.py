@@ -2,8 +2,8 @@ import asyncio
 import websockets
 from pynput import keyboard
 
-PICO_IP   = "192.168.1.92"
-PICO_PORT = 8765
+PICO_IP   = "192.168.0.92"
+PICO_PORT = 788
 URI       = f"ws://{PICO_IP}:{PICO_PORT}"
 
 _prev_cmd = None
@@ -24,14 +24,14 @@ async def sender(keys_held: set):
         _ws = ws
         try:
             print(f"connected to the pi: {URI}")
-            print("W = Forward   S = Backward   Ctrl+C = Quit\n")
+            print("forward is w, backward is s, control-c to quit\n")
             _prev_cmd = None
             while True:
                 cmd = resolve_command(keys_held)
                 if cmd != _prev_cmd:
                     await ws.send(cmd)
                     _prev_cmd = cmd
-                    label = {"forward": "▲ FORWARD", "backward": "▼ BACKWARD", "stop": "■ STOP"}[cmd]
+                    label = {"forward": "goin' forward", "backward": "rewind that bitch", "stop": "lower the masts!"}[cmd]
                     print(f"\r{label}          ", end="", flush=True)
                 await asyncio.sleep(0.01)
         except (websockets.ConnectionClosed, OSError) as e:

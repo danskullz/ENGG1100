@@ -65,7 +65,6 @@ while True:
     stop()
     print("please connect, i am waiting!")
     conn, addr = server.accept()
-    conn.settimeout(2)
     print(f"someone connected from: {addr}")
     ws = websocket_handshake(conn)
  
