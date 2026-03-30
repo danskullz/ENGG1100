@@ -39,5 +39,16 @@ stop()
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 wlan.connect(SSID, PASSWORD)
+
+for i in range(30):
+    if wlan.isconnected():
+        break
+    print(".", end="")
+    time.sleep(0.5)
+
+if not wlan.isconnected():
+    print("\ncould not connect to the 'fi")
+    raise RuntimeError("could not connect to the 'fi")
+
 ip = wlan.ifconfig()[0]
 print(f"\nconnected to the 'fi \nip: {ip}  \nport: {PORT}")
