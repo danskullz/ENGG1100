@@ -14,6 +14,11 @@ IN2 = Pin(5, Pin.OUT)
 IN3 = Pin(6, Pin.OUT)
 IN4 = Pin(7, Pin.OUT)
 
+# wifi
+SSID     = "Daniel's iPhone"
+PASSWORD = ""
+PORT     = 788
+
 # start stop functions
 def stop():
     IN1.off(); IN2.off()
@@ -28,3 +33,11 @@ def backward():
     IN3.off(); IN4.on()
  
 stop()
+
+
+# connecting to wifi
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(SSID, PASSWORD)
+ip = wlan.ifconfig()[0]
+print(f"\nconnected to the 'fi \nip: {ip}  \nport: {PORT}")
