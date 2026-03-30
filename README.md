@@ -6,25 +6,18 @@ Hold the BOOTSEL button and plug the pi into the computer.
 Copy the ```.ufw2``` file to the **RPI-RP2** drive
 The pi will reboot, and it is now running micropython.
 
-### Setup on Host Computer
+### Setup on client computer
 Install required python libraries:
 ```bash
 $ pip3 install -r requirements.txt
 ```
+The easiest way to interface with the pi is to install [Thonny](https://thonny.org/)
+Opening the ```view``` tab and selecting ```files``` lets you view and upload files to the RPI
 
 ### Usage
-Set the local ip of the Raspberry Pi in the environment variable ```PIGPIO_ADDR``` prefacing the python command. For example:
-
+Upload ```main.py``` and ```wetsock.py``` to the pi to use, then press run program.
+On the client:
 ```bash
-$ PIGPIO_ADDR=192.168.0.1 python3 remote.py
+python3 client.py
 ```
-
-### Hardware
-Pin definitions:
-| ID   | GPIO | RPI PIN |
-|------|------|---------|
-| GND  | GND  | 34      |
-| In 1 | 17   | 11      |
-| In 2 | 22   | 15      |
-| In 3 | 23   | 16      |
-| In 4 | 24   | 18      |
+This will then run the client script and attempt to connect to the RPI, where you can then control it
