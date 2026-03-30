@@ -11,7 +11,7 @@ Install required python libraries:
 ```bash
 $ pip3 install -r requirements.txt
 ```
-The easiest way to interface with the pi is to install [Thonny](https://thonny.org/)
+The easiest way to interface with the pi is to install [Thonny](https://thonny.org/).
 Opening the ```view``` tab and selecting ```files``` lets you view and upload files to the RPI
 
 ### Usage
