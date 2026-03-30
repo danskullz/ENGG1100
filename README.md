@@ -1,13 +1,11 @@
 # ENGG1100 Team Codebase
 
 ### Setup on RPI
-Initialise systemd module on raspberry pi at boot, and enable the service.
-```bash
-$ sudo systemctl enable pigpiod
-```
-```bash
-$ sudo systemctl start pigpiod
-```
+##### Uploading micropython to rpi
+Hold the BOOTSEL button and plug the pi into the computer.
+Copy the ```.ufw2``` file to the **RPI-RP2** drive
+The pi will reboot, and it is now running micropython.
+
 ### Setup on Host Computer
 Install required python libraries:
 ```bash
