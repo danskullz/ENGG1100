@@ -2,7 +2,7 @@ import network
 import socket
 import time
 from machine import Pin
-from wetsock.py import websocket_handshake, WebSocketError
+from wetsock import websocket_handshake, WebSocketError
 
 
 # motor 1
@@ -33,7 +33,6 @@ def backward():
  
 stop()
 
-
 # connecting to wifi
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
@@ -51,3 +50,16 @@ if not wlan.isconnected():
 
 ip = wlan.ifconfig()[0]
 print(f"\nconnected to the 'fi \nip: {ip}  \nport: {PORT}")
+
+# RECEIVER
+
+# start server
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server.bind(("0.0.0.0", PORT))
+server.listen(1)
+print(f"Listening on ws://{ip}:{PORT}")
+
+# main loop
+while True:
+    stop()
