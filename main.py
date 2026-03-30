@@ -13,8 +13,8 @@ IN2 = Pin(5, Pin.OUT)
 IN3 = Pin(6, Pin.OUT)
 IN4 = Pin(7, Pin.OUT)
 
-# wifi
-SSID     = "Daniel's iPhone"
+# wifi stuff - dont push to github!!!!
+SSID     = ""
 PASSWORD = ""
 PORT     = 788
 
