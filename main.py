@@ -1,10 +1,9 @@
 import network
 import socket
 import time
-import struct
-import hashlib
-import binascii
 from machine import Pin
+from 1websocket import websocket_handshake, WebSocketError
+
 
 # motor 1
 IN1 = Pin(4, Pin.OUT)
