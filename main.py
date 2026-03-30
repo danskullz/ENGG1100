@@ -2,7 +2,7 @@ import network
 import socket
 import time
 from machine import Pin
-from 1websocket import websocket_handshake, WebSocketError
+from wetsock.py import websocket_handshake, WebSocketError
 
 
 # motor 1
