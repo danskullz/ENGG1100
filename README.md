@@ -1,7 +1,7 @@
 # ENGG1100 Team Codebase
 
 ### Setup on RPI
-##### Uploading micropython to rpi
+#### Uploading micropython to rpi
 Hold the BOOTSEL button and plug the pi into the computer.
 Copy the ```.ufw2``` file to the **RPI-RP2** drive
 The pi will reboot, and it is now running micropython.

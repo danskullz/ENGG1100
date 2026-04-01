@@ -2,7 +2,7 @@ import asyncio
 import websockets
 from pynput import keyboard
 
-PICO_IP   = "192.168.0.92"
+PICO_IP   = "172.20.10.7"
 PICO_PORT = 788
 URI       = f"ws://{PICO_IP}:{PICO_PORT}"
 
